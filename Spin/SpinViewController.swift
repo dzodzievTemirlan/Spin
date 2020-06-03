@@ -16,23 +16,10 @@ class SpinViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-    
-    
-    
-   
     
     @IBAction func markButtonPressed(_ sender: UIButton) {
         animate.rotateWheel(wheel: wheelUIImage)
-        
-        
-//            self.wheelUIImage.transform = CGAffineTransform(rotationAngle: self.radians(degrees: 5))
-//            self.wheelUIImage.transform = __CGAffineTransformMake(0, -1, 1, 0, 0, 0)
-//    func radians(degrees: Double) -> CGFloat{
-//        return CGFloat( degrees * .pi / degrees)
     }
-    
 }
 

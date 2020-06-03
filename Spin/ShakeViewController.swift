@@ -9,24 +9,20 @@
 import UIKit
 
 class ShakeViewController: UIViewController {
-
+    var pickerModel = PickerModel()
+    var animation = Animation()
     @IBOutlet weak var pickerView: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        pickerView.delegate = pickerModel
+        pickerView.dataSource = pickerModel
+        pickerView.transform = CGAffineTransform(rotationAngle: pickerModel.rotationAngle)
+        pickerView.frame = CGRect(x: -100, y: (view.frame.height / 2) - 50, width: view.frame.width+200, height: 100)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake{
+            animation.shake(picker: pickerView)
+        }
     }
-    */
-
 }
